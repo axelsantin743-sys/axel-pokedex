@@ -1,8 +1,13 @@
 <?php
+require_once 'vendor/autoload.php';
+// Load environment variables from .env file
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
  try {   
-    $dns = 'mysql:host=gateway01.eu-central-1.prod.aws.tidbcloud.com; port=4000 ; dbname=axel_pokedakex_BDD';
-    $username = '2ZyDLSvnV8NtQFM.root';
-    $password = 'Z8K7ZobDkSfnwFUP';
+    $dns = 'mysql:host=' . $_ENV['DB_HOST'] . '; port=' . $_ENV['DB_PORT'] . ' ; dbname=' . $_ENV['DB_NAME'];
+    $username = $_ENV['DB_USER'];
+    $password = $_ENV['DB_PASS'];
 
     $options = [
         #ignore le certificat SSL
