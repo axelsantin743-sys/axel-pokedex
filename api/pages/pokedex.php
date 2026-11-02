@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../api/config/database.php';
+require_once __DIR__ . '/../config/database.php';
 
 //prepare la requete SQL 
 $select = $connection->query('SELECT * FROM pokemon;');
